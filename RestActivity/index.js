@@ -1,4 +1,8 @@
 const request = require("request");
+const http = require("http");
+
+http.globalAgent.maxSockets = 50;
+
 module.exports = async function (context) {
     context.log(`Running RestActivity at ${context.bindings.input.url} ...`);
     var resp = await new Promise((resolve, reject) => {
